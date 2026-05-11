@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Календарь — TimeMaster</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="app-layout">
+    <div class="mobile-header">
+      <a href="index.html" class="mobile-logo">
+        <div class="mobile-logo-icon">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg>
+        </div>
+        <span class="mobile-logo-text">TimeMaster</span>
+      </a>
+      <button class="burger-btn" id="burgerBtn">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="sidebar-logo">
+          <div class="sidebar-logo-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c0 1.7 3.1 3 7 3s7-1.3 7-3v-5"/></svg>
+          </div>
+          <div>
+            <div class="sidebar-logo-text">TimeMaster</div>
+            <div class="sidebar-logo-sub">Для школьников</div>
+          </div>
+        </a>
+      </div>
+      <nav class="sidebar-nav">
+        <ul>
+          <li><a href="index.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>Главная</a></li>
+          <li><a href="calendar.html" class="nav-link active"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Календарь</a></li>
+          <li><a href="tasks.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2h11"/></svg>Задачи</a></li>
+          <li><a href="timer.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>Таймер</a></li>
+          <li><a href="stats.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>Статистика</a></li>
+          <li><a href="settings.html" class="nav-link"><svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 00.33 1.82l.06.06a2 2 0 010 2.83 2 2 0 01-2.83 0l-.06-.06a1.65 1.65 0 00-1.82-.33 1.65 1.65 0 00-1 1.51V21a2 2 0 01-2 2 2 2 0 01-2-2v-.09A1.65 1.65 0 009 19.4a1.65 1.65 0 00-1.82.33l-.06.06a2 2 0 01-2.83 0 2 2 0 010-2.83l.06-.06a1.65 1.65 0 00.33-1.82 1.65 1.65 0 00-1.51-1H3a2 2 0 01-2-2 2 2 0 012-2h.09A1.65 1.65 0 004.6 9a1.65 1.65 0 00-.33-1.82l-.06-.06a2 2 0 010-2.83 2 2 0 012.83 0l.06.06a1.65 1.65 0 001.82.33H9a1.65 1.65 0 001-1.51V3a2 2 0 012-2 2 2 0 012 2v.09a1.65 1.65 0 001 1.51 1.65 1.65 0 001.82-.33l.06-.06a2 2 0 012.83 0 2 2 0 010 2.83l-.06.06a1.65 1.65 0 00-.33 1.82V9a1.65 1.65 0 001.51 1H21a2 2 0 012 2 2 2 0 01-2 2h-.09a1.65 1.65 0 00-1.51 1z"/></svg>Настройки</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-tip">
+        <div class="tip-box">
+          <div class="tip-title">Совет дня</div>
+          <div class="tip-text">Разбивай большие задачи на маленькие шаги для большей продуктивности</div>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-content">
+      <div class="page-container">
+        <div class="page-header">
+          <div>
+            <h1 class="page-title">Календарь</h1>
+            <p class="page-subtitle">Учебный план и события</p>
+          </div>
+          <button class="btn btn-primary" id="addEventBtn">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Добавить событие
+          </button>
+        </div>
+
+        <div style="display:grid;grid-template-columns:3fr 1fr;gap:24px;">
+          <div class="card" style="padding:0;">
+            <div class="calendar-header">
+              <div style="display:flex;align-items:center;gap:16px;">
+                <h2 class="calendar-title" id="calendarMonth">Апрель 2026</h2>
+                <div class="calendar-nav">
+                  <button class="calendar-nav-btn" id="prevMonthBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 18l-6-6 6-6"/></svg>
+                  </button>
+                  <button class="calendar-nav-btn" id="nextMonthBtn">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18l6-6-6-6"/></svg>
+                  </button>
+                </div>
+              </div>
+              <button id="todayBtn" style="padding:8px 16px;font-size:13px;font-weight:600;background:#eff6ff;color:#2563eb;border-radius:8px;border:none;cursor:pointer;">Сегодня</button>
+            </div>
+            <div class="calendar-grid">
+              <div class="calendar-day-header">Пн</div>
+              <div class="calendar-day-header">Вт</div>
+              <div class="calendar-day-header">Ср</div>
+              <div class="calendar-day-header">Чт</div>
+              <div class="calendar-day-header">Пт</div>
+              <div class="calendar-day-header">Сб</div>
+              <div class="calendar-day-header">Вс</div>
+            </div>
+            <div class="calendar-grid" id="calendarGrid"></div>
+          </div>
+
+          <div style="display:flex;flex-direction:column;gap:16px;">
+            <div class="event-panel">
+              <div class="event-panel-header">
+                <div class="event-panel-icon">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+                </div>
+                <div>
+                  <h3 style="font-size:18px;font-weight:700;" id="selectedDateTitle">26 апреля</h3>
+                  <p style="font-size:12px;color:#a1a1aa;text-transform:uppercase;" id="selectedDateWeekday">воскресенье</p>
+                </div>
+              </div>
+              <div id="eventList" style="max-height:400px;overflow-y:auto;"></div>
+              <button id="addEventPanelBtn" style="width:100%;margin-top:16px;padding:12px;background:#2563eb;color:#fff;border-radius:12px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;border:none;cursor:pointer;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+                Добавить план
+              </button>
+            </div>
+
+            <div class="card">
+              <h4 style="font-size:12px;font-weight:700;text-transform:uppercase;color:#9ca3af;margin-bottom:16px;">Категории</h4>
+              <div style="display:flex;flex-direction:column;gap:12px;">
+                <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:50%;background:#3b82f6;"></div><span style="font-size:14px;color:#374151;">Лекции</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:50%;background:#10b981;"></div><span style="font-size:14px;color:#374151;">Практики</span></div>
+                <div style="display:flex;align-items:center;gap:8px;"><div style="width:10px;height:10px;border-radius:50%;background:#f43f5e;"></div><span style="font-size:14px;color:#374151;">Экзамены</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <div class="modal-overlay" id="eventModal" style="display:none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Новое событие на <span id="modalDate"></span></h2>
+        <button class="modal-close" id="closeEventBtn">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Название</label>
+        <input type="text" class="form-input" id="eventTitle" placeholder="Математический анализ">
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Время</label>
+          <input type="time" class="form-input" id="eventTime" value="09:00">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Длительность</label>
+          <select class="form-select" id="eventDuration">
+            <option value="30 мин">30 мин</option>
+            <option value="45 мин">45 мин</option>
+            <option value="60 мин">60 мин</option>
+            <option value="90 мин" selected>90 мин</option>
+            <option value="120 мин">120 мин</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Тип</label>
+        <div class="type-selector">
+          <div class="type-option active" data-type="lecture">Лекция</div>
+          <div class="type-option" data-type="practice">Практика</div>
+          <div class="type-option" data-type="exam">Экзамен</div>
+          <div class="type-option" data-type="deadline">Дедлайн</div>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="form-group">
+          <label class="form-label">Аудитория</label>
+          <input type="text" class="form-input" id="eventRoom" placeholder="Ауд. 301">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Преподаватель</label>
+          <input type="text" class="form-input" id="eventInstructor" placeholder="Иванов И.И.">
+        </div>
+      </div>
+      <div class="form-actions">
+        <button class="btn-secondary" id="cancelEventBtn">Отмена</button>
+        <button class="btn btn-primary" id="saveEventBtn">Добавить</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/storage.js"></script>
+  <script src="js/app.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      if (typeof initCalendar === 'function') initCalendar();
+    });
+  </script>
+</body>
+</html>
